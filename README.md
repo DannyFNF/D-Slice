@@ -1,12 +1,10 @@
-h slice but it has the best optiomzation optimization It has the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optimzation
-
 <h1 align="center">
   <br>
   <a href="https://github.com/HRK-EXEX/H-Slice">
     <img src="/art/desktop/iconOG.png" alt="H-Slice" width="150">
   </a>
   <br>
-  <b>H-Slice+JS Engine</b>
+  <b>D-Slice Engine</b>
   <br>
 </h1>
 
@@ -20,22 +18,9 @@ h slice but it has the best optiomzation optimization It has the&nbsp;&nbsp;&nbs
 
 ## Introduction
 
-Welcome to **H-Slice+JS** (formerly H-Slice), a Friday Night Funkin' engine optimized for handling large charts efficiently.
+Welcome to **D-Slice** (a fork H-Slice+JS), a Friday Night Funkin' engine optimized for handling and playing large charts efficiently.
 
-This engine builds upon features from my previous engine and may include new features in the future.
-
-### *If you plan to integrate my features into your own engine,*
-### *Please contact to hrk first and CREDIT H-SLICE+JS.*
-
-**Note:** This engine is designed for playing large, unplayable charts using BOTPLAY. It is not intended for regular gameplay.
-
-### Social Media
-*While credit isn't mandatory, I would greatly appreciate it if you credited me.*
-
-- **Discord**: [hrk.exex](https://discord.gg/SzXbVkqmG9) *(Phone verification required)*
-- **Twitter**: [@hrek_hexex](https://x.com/Hrek_Hexex)
-- **Bluesky**: [@hrekexexex](https://bsky.app/profile/hrekexkex.bsky.social) *(For emergencies if Discord or Twitter is unavailable)*
-
+This engine is still H-Slice+JS Engine but builds upon features from JS Engine and may include new features in the future.
 
 <details>
   <summary><h2>Original P-Slice Description</h2></summary>
