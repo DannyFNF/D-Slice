@@ -30,7 +30,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 
 	function getOptions()
 	{
-		var goption:GameplayOption = new GameplayOption('Scroll Type', 'scrolltype', STRING, 'multiplicative', ["multiplicative", "constant", "ignore changes"]);
+		var goption:GameplayOption = new GameplayOption('Scroll Type:', 'scrolltype', STRING, 'multiplicative', ["multiplicative", "constant", "ignore changes"]);
 		optionsArray.push(goption);
 
 		var option:GameplayOption = new GameplayOption('Scroll Speed', 'scrollspeed', FLOAT, 1);
@@ -83,6 +83,20 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		optionsArray.push(new GameplayOption('Instant crash on Miss', 'instacrash', BOOL, false));
 		optionsArray.push(new GameplayOption('Practice Mode', 'practice', BOOL, false));
 		optionsArray.push(new GameplayOption('Botplay', 'botplay', BOOL, false));
+		optionsArray.push(new GameplayOption('Play As Opponent', 'opponentplay', BOOL, false));
+		optionsArray.push(new GameplayOption('Play Both Sides', 'bothsides', BOOL, false));
+		optionsArray.push(new GameplayOption('One Key', 'onekey', BOOL, false));
+
+		var option:GameplayOption = new GameplayOption('Key Target:', 'onekeytarget', STRING, 'Left', ['Left', 'Down', 'Up', 'Right']);
+		optionsArray.push(option);
+
+		var option:GameplayOption = new GameplayOption('Jack Amount:', 'jacks', INT, 0);
+		option.scrollSpeed = 100;
+		option.minValue = 0;
+		option.maxValue = 100;
+		option.changeValue = 1;
+		option.displayFormat = '%v';
+		optionsArray.push(option);
 	}
 
 	public function getOptionByName(name:String)

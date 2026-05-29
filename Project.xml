@@ -4,9 +4,9 @@ xmlns="http://lime.openfl.org/project/1.0.4"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/xsd/project-1.0.4.xsd">
 	<!-- _________________________ Application Settings _________________________ -->
-	<app unless="PROFILE_BUILD || mobile" title="Friday Night Funkin': H-Slice+JS (HRK Engine Redux)" file="H-Slice+JS" packageName="com.hrek.hexex.hslice" package="com.hrek.hexex.hslice" main="Main" version="0.2" company="hrek-hexex" />
-	<app if="PROFILE_BUILD" title="H-Slice+JS Engine Profiling build" file="H-Slice+JS" packageName="com.hrek.hexex.testHslice" package="com.hrek.hexex.testHslice" main="Main" version="0.2"  company="hrek-hexex" />
-	<app if="mobile" unless="PROFILE_BUILD" title="H-Slice+JS Engine" file="H-Slice+JS" packageName="com.hrek.hexex.hslice" package="com.hrek.hexex.hslice" main="Main" version="0.2"  company="hrek-hexex" />
+	<app unless="PROFILE_BUILD || mobile" title="Friday Night Funkin': D-Slice (Danny Engine)" file="D-Slice" packageName="com.danny.dslice" package="com.danny.dslice" main="Main" version="0.2" company="Danny" />
+	<app if="PROFILE_BUILD" title="D-Slice Engine Profiling build" file="D-Slice" packageName="com.danny.testDslice" package="com.danny.testDslice" main="Main" version="0.2"  company="Danny" />
+	<app if="mobile" unless="PROFILE_BUILD" title="D-Slice Engine" file="D-Slice" packageName="com.danny.dslice" package="com.danny.dslice" main="Main" version="0.2"  company="Danny" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />

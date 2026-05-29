@@ -94,6 +94,7 @@ class FunkinLua {
 		set('luaDebugMode', false);
 		set('luaDeprecatedWarnings', true);
 		set('version', MainMenuState.psychEngineVersion.trim());
+		set("versionDS", MainMenuState.dSliceVersion.trim());
 		set('versionPS', MainMenuState.pSliceVersion.trim());
 		set('versionHS', MainMenuState.hrkVersion.trim());
 		set('modFolder', this.modFolder);

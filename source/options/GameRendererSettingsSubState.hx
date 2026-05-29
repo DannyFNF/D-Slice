@@ -170,7 +170,7 @@ class GameRendererSettingsSubState extends BaseOptionsMenu
 		addOption(option);
 
         var option:Option = new Option('Preview Mode',
-			"If checked, the game will skip redering.\nIf ffmpeg is not found, this is forced on.\nIt's for a function for debug too.",
+			"If checked, the game will skip rendering.\nIf ffmpeg is not found, this is forced on.\nIt's for a function for debug too.",
 			'previewRender',
 			BOOL);
 		addOption(option);

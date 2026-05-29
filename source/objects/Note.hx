@@ -53,6 +53,7 @@ typedef CastNote = {
 	@:optional var holdLength:Null<Float>;
 	@:optional var noteType:String;
 	@:optional var cmpSpam:Array<Dynamic>;
+	var doOppStuff:Bool;
 }
 
 typedef SpamNoteData = {
@@ -87,7 +88,8 @@ class Note extends FlxSprite
 		noteData: 0,
 		density: 1,
 		noteType: "",
-		holdLength: 0
+		holdLength: 0,
+		doOppStuff: false
 	};
 
 	public var extraData:Map<String, Dynamic> = new Map<String, Dynamic>();
@@ -118,6 +120,8 @@ class Note extends FlxSprite
 	public var isSustainNote:Bool = false;
 	public var isSustainEnds:Bool = false;
 	public var noteType(default, set):String = null;
+
+	public var doOppStuff:Bool = false;
 
 	public var eventName:String = '';
 	public var eventLength:Int = 0;
@@ -592,6 +596,8 @@ class Note extends FlxSprite
 	var correctWidth:Float;
 
 	public function recycleNote(target:CastNote) {
+		if (target == null)
+			target = DEFAULT_CAST;
 		wasGoodHit = hitByOpponent = tooLate = false;
 		canBeHit = missed = flipY = false; // Don't make an update call of this for the note group
 		exists = true;
@@ -611,6 +617,7 @@ class Note extends FlxSprite
 		ignoreNote = toBool(target.noteData & (1<<15));				 		 // ignoreNote
 		noteData = target.noteData & 3;
 		density = target.density ?? 1;
+		doOppStuff = target.doOppStuff ?? false;
 
 		hitsoundDisabled = isSustainNote;
 
@@ -701,7 +708,8 @@ class Note extends FlxSprite
 			noteData: lmfao,
 			density: 1,
 			noteType: this.noteType,
-			holdLength: this.sustainLength
+			holdLength: this.sustainLength,
+			doOppStuff: this.doOppStuff
 		};
 
 		return converted;

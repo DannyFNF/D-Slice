@@ -16,6 +16,7 @@ class MainMenuState extends MusicBeatState
 	public static var pSliceVersion:String = '3.3.1';
 	public static var funkinVersion:String = '0.7.4'; // Version of funkin' we are emulationg
 	public static var hrkVersion:String = '0.2.4'; // Version of H-Slice
+	public static var dSliceVersion:String = '0.0.1'; // Version of D-Slice
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -68,26 +69,31 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 
 		var padding:Float = 8;
+		var dsliceVer:FlxText = new FlxText(padding, FlxG.height - 98 - padding, FlxG.width, 'D-Slice v${dSliceVersion}', 12);
 		var hrkVer:FlxText = new FlxText(padding, FlxG.height - 78 - padding, FlxG.width, 'H-Slice+JS v' + hrkVersion, 12);
 		var psliceVer:FlxText = new FlxText(padding, FlxG.height - 58 - padding, FlxG.width, 'P-Slice v${pSliceVersion}', 12);
 		var psychVer:FlxText = new FlxText(padding, FlxG.height - 38 - padding, FlxG.width, 'Psych Engine v' + psychEngineVersion, 12);
 		var fnfVer:FlxText = new FlxText(padding, FlxG.height - 18 - padding, FlxG.width, 'Friday Night Funkin\' v${funkinVersion}', 12);
 
+		dsliceVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		hrkVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		psliceVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		psychVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		fnfVer.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		
+		dsliceVer.scrollFactor.set();
 		hrkVer.scrollFactor.set();
 		psliceVer.scrollFactor.set();
 		psychVer.scrollFactor.set();
 		fnfVer.scrollFactor.set();
 		
+		dsliceVer.antialiasing = ClientPrefs.data.antialiasing;
 		hrkVer.antialiasing = ClientPrefs.data.antialiasing;
 		psliceVer.antialiasing = ClientPrefs.data.antialiasing;
 		psychVer.antialiasing = ClientPrefs.data.antialiasing;
 		fnfVer.antialiasing = ClientPrefs.data.antialiasing;
 
+		add(dsliceVer);
 		add(hrkVer);
 		add(psliceVer);
 		add(psychVer);

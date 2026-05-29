@@ -171,6 +171,23 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 			BOOL);
 		addOption(option);
 
+		var option:Option = new Option("Taunt on 'GO'",
+			'If checked, the characters will taunt on GO when you play.',
+			'tauntOnGo',
+			BOOL);
+		addOption(option);
+
+		var option:Option = new Option(' - Taunt Duration:',
+		    "Use for the option above. Set how long the characters stay in their taunt animation on GO.",
+		    'tauntDuration',
+		    FLOAT);
+		option.scrollSpeed = 100;
+		option.minValue = 0.1;
+		option.maxValue = 1e+300;
+		option.changeValue = 0.1;
+		option.decimals = 1;
+		addOption(option);
+
 		var option:Option = new Option('Three Digits Delimiter',
 			'If checked, it improves the visibility of large numbers, like 1000 or more.',
 			'numberFormat',

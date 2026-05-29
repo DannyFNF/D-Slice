@@ -23,7 +23,8 @@ class MetaNote extends Note
 			noteData: data,
 			density: 1,
 			noteType: "",
-			holdLength: 0
+			holdLength: 0,
+			doOppStuff: false
 		}
 
 		recycleNote(tempCast);

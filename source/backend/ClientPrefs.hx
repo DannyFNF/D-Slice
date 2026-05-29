@@ -82,6 +82,8 @@ import states.InitState;
 	public var strumAnim:Bool = true;
 	public var holdAnim:Bool = true;
 	public var hideHud:Bool = false;
+	public var tauntOnGo:Bool = true;
+	public var tauntDuration:Float = 0.6;
 	public var numberFormat:Bool = false;
 	public var showInfoType:String = "None";
 	public var timeBarType:String = 'Time Left';
@@ -118,6 +120,8 @@ import states.InitState;
 	public var ghostRange:Float = 0.01;
 	public var ghostDensity:Bool = true;
 	public var autoPause:Bool = true;
+	public var moreSpammableInputs:Bool = false;
+	public var stackWindow:Int = 80;
 	public var checkForUpdates:Bool = true;
 	public var noReset:Bool = false;
 	public var nanoPosition:Bool = false;
@@ -193,7 +197,11 @@ import states.InitState;
 		'instacrash' => false,
 		'practice' => false,
 		'botplay' => false,
-		'opponentplay' => false
+		'opponentplay' => false,
+		'bothsides' => false,
+		'onekey' => false,
+		'onekeytarget' => 'Left',
+		'jacks' => 0.0
 	];
 
 	public var comboOffset:Array<Int> = [0, 0, 0, 0, 0, 0];

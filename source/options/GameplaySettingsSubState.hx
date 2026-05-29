@@ -119,6 +119,24 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			BOOL);
 		addOption(option);
 		option.onChange = onChangeAutoPause;
+
+		var option:Option = new Option('More Spammable Inputs',
+			"If checked, makes the input system more spammable.",
+			'moreSpammableInputs',			
+			BOOL);
+		addOption(option);
+
+		var option:Option = new Option(' - Stack Window:',
+		    "Use for the option above. Time window (ms) where nearby notes will be hit together.\nHigher = more spam-friendly.",
+		    'stackWindow',
+		    INT);
+		option.displayFormat = '%v ms';
+		option.scrollSpeed = 100;
+		option.minValue = 10;
+		option.maxValue = 300;
+		option.changeValue = 1;
+		option.decimals = 1;
+		addOption(option);
 		
 		#if CHECK_FOR_UPDATES
 		var option:Option = new Option('Check for Updates',
