@@ -18,7 +18,7 @@
 
 ## Introduction
 
-Welcome to **D-Slice** (a fork H-Slice+JS), a Friday Night Funkin' engine optimized for handling and playing large charts efficiently.
+Welcome to **D-Slice** (a fork from H-Slice+JS), a Friday Night Funkin' engine optimized for handling and playing large charts efficiently.
 
 This engine is still H-Slice+JS Engine but builds upon features from JS Engine and may include new features in the future.
 
