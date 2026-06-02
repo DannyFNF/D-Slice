@@ -4946,7 +4946,12 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (!miss && !ffmpegMode) (opponentChart ? opponentVocals : vocals).volume = 1;
+		if (!miss && !ffmpegMode)
+		{
+			var targetVocals = opponentChart ? opponentVocals : vocals;
+			if (targetVocals != null)
+				targetVocals.volume = 1;
+		}
 
 		if (showRating && bfHit) {
 			ratingImage = cpuControlled ? forceSick.image : daRating.image;
