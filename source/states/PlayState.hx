@@ -782,6 +782,19 @@ class PlayState extends MusicBeatState
 			timeTxt.y += 3;
 		}
 
+		if (ClientPrefs.data.timeBarType == 'Time Elapsed + Time Left')
+		{
+			timeBar.bg.scale.x = 1.5;
+			timeBar.leftBar.scale.x = 1.5;
+			timeBar.rightBar.scale.x = 1.5;
+
+			timeBar.bg.updateHitbox();
+			timeBar.leftBar.updateHitbox();
+			timeBar.rightBar.updateHitbox();
+
+			timeBar.screenCenter(X);
+		}
+
 		generateSong();
 		canResync = true;
 
@@ -2721,8 +2734,21 @@ class PlayState extends MusicBeatState
 			if (secondsTotal < 0)
 				secondsTotal = 0;
 
-			if (ClientPrefs.data.timeBarType != 'Song Name')
+			if (ClientPrefs.data.timeBarType == 'Time Elapsed + Time Left')
+			{
+				var left:Float = Math.max(0, songLength - curTime);
+
+				timeTxt.text =
+					CoolUtil.formatTime(curTime / 1000, ClientPrefs.data.timePrec)
+					+ " / "
+					+ CoolUtil.formatTime(songLength / 1000, ClientPrefs.data.timePrec)
+					+ " / "
+					+ CoolUtil.formatTime(left / 1000, ClientPrefs.data.timePrec);
+			}
+			else if (ClientPrefs.data.timeBarType != 'Song Name')
+			{
 				timeTxt.text = CoolUtil.formatTime(secondsTotal, ClientPrefs.data.timePrec);
+			}
 
 			if (ffmpegMode && !endingSong && songCalc < 0) {
 				finishSong();
@@ -3098,6 +3124,18 @@ class PlayState extends MusicBeatState
 		if (!preshot) renderFrame();
 		
 		++frameCount;
+	}
+
+	function formatDetailedTime(ms:Float):String
+	{
+		var seconds:Int = Math.floor(ms / 1000);
+		var minutes:Int = Math.floor(seconds / 60);
+		var centis:Int = Math.floor((ms % 1000) / 10);
+
+		return minutes + ":"
+			+ StringTools.lpad(Std.string(seconds % 60), "0", 2)
+			+ "."
+			+ StringTools.lpad(Std.string(centis), "0", 2);
 	}
 
 	function renderFrame() {
@@ -5763,12 +5801,13 @@ class PlayState extends MusicBeatState
 
 	public function spawnHoldSplash(note:Note) {
 		if (note == null || note.strum == null) return;
-		var susplashIndex = (note.mustPress ? 4 : 0) + note.noteData;
+		var splashMustPress = opponentChart ? !note.mustPress : note.mustPress;
+		var susplashIndex = (splashMustPress ? 4 : 0) + note.noteData;
 		var susplash = susplashMap[susplashIndex];
 		var isUsedSplash = susplash.holding;
 
 		if (!isUsedSplash || isUsedSplash && note.isSustainEnds) {
-			var holdSplashStrum = note.mustPress ? playerStrums.members[note.noteData] : opponentStrums.members[note.noteData];
+			var holdSplashStrum = splashMustPress ? playerStrums.members[note.noteData] : opponentStrums.members[note.noteData];
 			if (note.strum != splashStrum) note.strum = holdSplashStrum;
 
 			susplash.setupSusSplash(note, playbackRate);
@@ -5790,11 +5829,12 @@ class PlayState extends MusicBeatState
 	{
 		if (!note.mustPress && !splashOpponent)
 			return;
-		splashNoteData = note.noteData + (note.mustPress ? 4 : 0);
+		var splashMustPress = opponentChart ? !note.mustPress : note.mustPress;
+		splashNoteData = note.noteData + (splashMustPress ? 4 : 0);
 		if (splashMoment[splashNoteData] < splashCount)
 		{
 			frameId = frames = -1;
-			splashStrum = note.mustPress ? playerStrums.members[note.noteData] : opponentStrums.members[note.noteData];
+			splashStrum = splashMustPress ? playerStrums.members[note.noteData] : opponentStrums.members[note.noteData];
 			if (note.strum != splashStrum) note.strum = splashStrum;
 			
 			if (splashUsing[splashNoteData].length >= splashCount)

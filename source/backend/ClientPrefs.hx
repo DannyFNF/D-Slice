@@ -106,6 +106,7 @@ import states.InitState;
 	public var showCombo:Bool = false;
 	public var comboStacking:Bool = true;
 	public var changeNotes:Bool = false;
+	public var flipPopupY:Bool = false;
 
 	// Gameplay Settings
 	public var downScroll:Bool = false;

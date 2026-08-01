@@ -222,6 +222,7 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 				'Time Left',
 				'Time Elapsed',
 				'Song Name',
+				'Time Elapsed + Time Left',
 				'Disabled'
 			]);
 		addOption(option);
@@ -373,6 +374,12 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 		var option:Option = new Option('Combo <-> Notes',
 			"If checked, the combo number will become a note counter instead.\nIt counts both opponent and player note hits.",
 			'changeNotes',
+			BOOL);
+		addOption(option);
+
+		var option:Option = new Option('Flip Pop-Ups Y',
+			"If checked, makes rating/combo popups mirror their Y offset when Downscroll is enabled. (I don't think anyone uses this..)",
+			'flipPopupY',
 			BOOL);
 		addOption(option);
 

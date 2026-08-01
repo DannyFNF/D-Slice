@@ -48,14 +48,19 @@ class Popup extends FlxSprite {
         reloadTexture(rateImg);
         screenCenter();
         x = placement - 40;
-        y -= 60;
+        var offsetFromCenter = -60 - ClientPrefs.data.comboOffset[1];
+        if (ClientPrefs.data.flipPopupY && ClientPrefs.data.downScroll)
+        {
+            offsetFromCenter *= -1;
+            offsetFromCenter += 50;
+        }
         ay = 550;
         vy -= FlxG.random.int(140, 175);
         vx -= FlxG.random.int(0, 10);
 
         visible = (!ClientPrefs.data.hideHud && i.showRating);
         x += ClientPrefs.data.comboOffset[0];
-        y -= ClientPrefs.data.comboOffset[1];
+        y += offsetFromCenter;
         antialiasing = i.antialias;
         
         setGraphicSize(Std.int(width * (PlayState.isPixelStage ? 0.85 * PlayState.daPixelZoom : 0.7)));
@@ -75,7 +80,13 @@ class Popup extends FlxSprite {
         reloadTexture(numberImg);
         screenCenter();
         x = placement + 44 * index - 90 + ClientPrefs.data.comboOffset[2] + (delimiter - (comma ? 1 : 0) - (comboDigit + Std.int((comboDigit - 1) / 3) / 2 - 3)) * 22;
-        y += 75 - ClientPrefs.data.comboOffset[3] + (comma ? 2 : 0);
+        var offsetFromCenter = 75 - ClientPrefs.data.comboOffset[3];
+        if (ClientPrefs.data.flipPopupY && ClientPrefs.data.downScroll)
+        {
+            offsetFromCenter *= -1;
+            offsetFromCenter += 50;
+        }
+        y += offsetFromCenter + (comma ? 2 : 0);
 
         setGraphicSize(Std.int(width * (PlayState.isPixelStage ? PlayState.daPixelZoom : 0.5)));
         updateHitbox();
@@ -105,7 +116,13 @@ class Popup extends FlxSprite {
         vx += FlxG.random.int(-10, 10);
         visible = (!ClientPrefs.data.hideHud && i.showCombo);
         x += 75 + ClientPrefs.data.comboOffset[4];
-        y += 60 - ClientPrefs.data.comboOffset[5];
+        var offsetFromCenter = 60 - ClientPrefs.data.comboOffset[5];
+        if (ClientPrefs.data.flipPopupY && ClientPrefs.data.downScroll)
+        {
+            offsetFromCenter *= -1;
+            offsetFromCenter += 50;
+        }
+        y += offsetFromCenter;
         antialiasing = i.antialias;
         setGraphicSize(Std.int(width * (PlayState.isPixelStage ? 0.7 * PlayState.daPixelZoom : 0.55)));
         updateHitbox();
